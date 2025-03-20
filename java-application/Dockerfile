@@ -1,6 +1,7 @@
 # You can change this base image to anything else
 # But make sure to use the correct version of Java
-FROM adoptopenjdk/openjdk17:alpine-jre
+FROM openjdk:17-alpine
+
 
 # Install Docker using apk (Alpine's package manager)
 RUN apk update && \
