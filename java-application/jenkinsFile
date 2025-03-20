@@ -46,6 +46,7 @@ pipeline {
           currentBuild.result = 'FAILURE'
           error "Docker push failed"
         }
+        }
       }
     }
     stage('Update Deployment File') {
