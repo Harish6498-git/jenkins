@@ -1,14 +1,17 @@
-# You can change this base image to anything else
-# But make sure to use the correct version of Java
-FROM adoptopenjdk/openjdk:11-alpine
+# Use a base image that includes Maven and Java 11 (Alpine-based)
+FROM maven:3.8.6-openjdk-11-slim
 
+# Install Docker CLI (Alpine-specific)
+RUN apk update && apk add --no-cache docker-cli
 
-# Simply the artifact path
-ARG artifact=target/spring-boot-web.jar
+# Set the working directory
+WORKDIR /app
 
-WORKDIR /opt/app
+# Copy the application JAR (Assuming it's built in the 'target' directory)
+COPY target/spring-boot-web.jar app.jar
 
-COPY ${artifact} app.jar
- 
-# This should not be changed
-ENTRYPOINT ["java","-jar","app.jar"]
+# Expose the port your application listens on (if applicable)
+# EXPOSE 8080
+
+# Define the command to run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
