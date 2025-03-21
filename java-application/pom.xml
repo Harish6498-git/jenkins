@@ -58,7 +58,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                <mainClass>com.harish.StartApplication</mainClass>  <!-- Add this line -->
+                <mainClass>com.harish.Java.application</mainClass>  <!-- Add this line -->
             </configuration>
             </plugin>
             <plugin>
